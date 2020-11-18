@@ -25,7 +25,7 @@ public class CandyMachine {
 
     public String dispense(String choice, double money){
         for (int i = 0; i < stock.length; i++) {
-            if (stock[i].equals(choice) && prices[i] <= money){
+            if (stock[i].equalsIgnoreCase(choice) && prices[i] <= money){
                 money -= prices[i];
                 return "Great choice! Your change is: $" + money;
             }
