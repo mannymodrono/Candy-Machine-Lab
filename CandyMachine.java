@@ -14,12 +14,22 @@ public class CandyMachine {
         }
     }
 
-    public void dispense(String choice, double money){
+    public boolean checkChoice(String choice){
         for (int i = 0; i < stock.length; i++) {
-            if (stock[i].equals(choice) && prices[i] <= money){
-                System.out.print("Great choice!\nYour change is: ");
-                System.out.println(money - prices[i]);
+            if (stock[i].equalsIgnoreCase(choice)){
+                return true;
             }
         }
+        return false;
+    }
+
+    public String dispense(String choice, double money){
+        for (int i = 0; i < stock.length; i++) {
+            if (stock[i].equals(choice) && prices[i] <= money){
+                money -= prices[i];
+                return "Great choice! Your change is: $" + money;
+            }
+        }
+        return "Go home, you can't afford that.";
     }
 }

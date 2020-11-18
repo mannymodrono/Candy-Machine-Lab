@@ -16,9 +16,13 @@ public class CandyMachineMain {
         System.out.println("Here's what we got:\n\n");
         machine.printStock();
 
-        String choice = scan.nextLine();
+        String choice = scan.next();
 
-        machine.dispense(choice, money);
+        if (machine.checkChoice(choice))
+            System.out.println(machine.dispense(choice, money));
+
+        else
+            System.out.println("Don't got that");
 
 
     }
